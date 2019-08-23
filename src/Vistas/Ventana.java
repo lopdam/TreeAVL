@@ -11,7 +11,6 @@ import javax.swing.JOptionPane;
 
 public class Ventana extends JFrame {
 
-     
     private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonInsertar;
     private javax.swing.JTextArea impresion;
@@ -20,7 +19,6 @@ public class Ventana extends JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
- 
 
     private SimuladorArbolBinario simulador = new SimuladorArbolBinario();
 
@@ -68,7 +66,7 @@ public class Ventana extends JFrame {
         impresion.setColumns(20);
         impresion.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         impresion.setRows(5);
-        impresion.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados de operaciones"));
+        impresion.setBorder(javax.swing.BorderFactory.createTitledBorder("Resultados de operaciones:"));
         impresion.setOpaque(false);
         jScrollPane1.setViewportView(impresion);
 
@@ -191,14 +189,15 @@ public class Ventana extends JFrame {
             if (this.simulador.insertar(dato)) {
                 JOptionPane.showMessageDialog(null, "El dato fue insertado correctamente", " ...", 1);
                 this.inicializar(true);
-
+                this.impresion.setText("Dato Insertado Correctamente: " + dato);
                 complementos();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "No se pudo insertar el dato", "Intenta de nuevo...", 0);
+            this.impresion.setText("No se puede insertar el Dato. :( ");
+            JOptionPane.showMessageDialog(null, "No se puede insertar el Dato", "Intenta de nuevo...", 0);
 
         }
-        simulador.miArbol.preorden();
+        simulador.miArbol.inorden();
     }
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -209,7 +208,7 @@ public class Ventana extends JFrame {
             complementos();
         } catch (Exception e) {
         }
-        simulador.miArbol.preorden();
+        simulador.miArbol.inorden();
     }
 
     public void complementos() {
