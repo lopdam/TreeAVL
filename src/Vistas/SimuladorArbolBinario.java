@@ -26,7 +26,7 @@ public class SimuladorArbolBinario {
 
     public String borrar(Integer dato) {
         boolean x = this.miArbol.remove(dato);
-        System.out.println(x);
+        //System.out.println(x);
         if (!x) {
             return ("No existe el dato en el arbol");
         }
@@ -34,6 +34,6 @@ public class SimuladorArbolBinario {
     }
 
     public JPanel getDibujo() {
-        return this.miArbol.getdibujo();
+        return new ArbolExpresionGrafico(this.miArbol);
     }
 }

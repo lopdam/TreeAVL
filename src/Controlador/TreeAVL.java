@@ -3,10 +3,7 @@
  */
 package Controlador;
 
-import Vistas.ArbolExpresionGrafico;
 import java.util.Comparator;
-import javax.swing.JPanel;
-
 /**
  *
  * @author lopdam
@@ -312,7 +309,4 @@ public class TreeAVL<E> {
         this.root = root;
     }
 
-    public JPanel getdibujo() {
-        return new ArbolExpresionGrafico(this);
-    }
 }
