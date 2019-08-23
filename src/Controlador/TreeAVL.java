@@ -189,36 +189,7 @@ public class TreeAVL<E> {
         actualizar(nuevoPadre);
         return nuevoPadre;
     }
-
-    public void preorden() {
-        System.out.println("");
-        preorden(root);
-
-    }
-
-    private void preorden(Node<E> nodo) {
-
-        if (nodo != null) {
-            System.out.print(nodo.getData() + " ");
-            preorden(nodo.getLeft());
-            preorden(nodo.getRight());
-        }
-
-    }
-
-    public void postorden() {
-        System.out.println("");
-        postorden(root);
-    }
-
-    private void postorden(Node<E> nodo) {
-        if (nodo != null) {
-            postorden(nodo.getLeft());
-            postorden(nodo.getRight());
-            System.out.print(nodo.getData() + " ");
-        }
-    }
-
+    
     public void inorden() {
         System.out.println("");
         inorden(root);
