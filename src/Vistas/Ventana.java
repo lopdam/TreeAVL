@@ -197,7 +197,7 @@ public class Ventana extends JFrame {
             JOptionPane.showMessageDialog(null, "No se puede insertar el Dato", "Intenta de nuevo...", 0);
 
         }
-        simulador.miArbol.inorden();
+        //simulador.miArbol.inorden();
     }
 
     private void botonBorrarActionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,8 +207,9 @@ public class Ventana extends JFrame {
 
             complementos();
         } catch (Exception e) {
+            this.impresion.setText("No se puede borrar ese Dato.");
         }
-        simulador.miArbol.inorden();
+        //simulador.miArbol.inorden();
     }
 
     public void complementos() {
