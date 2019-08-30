@@ -1,7 +1,7 @@
 package Controlador;
 
 /*
- * Clase Node la que contiene las especificaciones de cada nodoF
+ * Clase Node la que contiene las especificaciones de cada nodo
  */
 import java.util.Objects;
 
