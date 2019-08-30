@@ -1,15 +1,18 @@
 package Vistas;
 
+/*
+Ventana Panel Fondo
+Es la Ventana que funciona como un contenedor para todos los componentes
+ */
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
 /**
  * @author lopdam
  */
+public class VentanaFondo extends JPanel {
 
-public class PanelFondo extends JPanel {
-
-    public PanelFondo() {
+    public VentanaFondo() {
         initComponents();
         this.setSize(1920, 1080);
 

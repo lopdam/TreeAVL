@@ -1,9 +1,12 @@
-/*
- * 
- */
 package Controlador;
 
+/*
+ * Control logico del Arbol
+ * Agrega todas la funcionalidades necesarias
+  * Agregar, Remover, Balancear etc.
+ */
 import java.util.Comparator;
+
 /**
  *
  * @author lopdam
@@ -188,20 +191,6 @@ public class TreeAVL<E> {
         actualizar(nodo);
         actualizar(nuevoPadre);
         return nuevoPadre;
-    }
-    
-    public void inorden() {
-        System.out.println("");
-        inorden(root);
-    }
-
-    private void inorden(Node<E> nodo) {
-        if (nodo != null) {
-            inorden(nodo.getLeft());
-            System.out.print(nodo.getData() + " ");
-            inorden(nodo.getRight());
-
-        }
     }
 
     public boolean remove(E data) {

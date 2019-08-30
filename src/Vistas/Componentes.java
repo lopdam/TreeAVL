@@ -1,7 +1,8 @@
-/*
- */
 package Vistas;
 
+/*
+    En esta clase se agregan todos los componetes a  al panel
+ */
 import java.awt.BorderLayout;
 import java.awt.Rectangle;
 import javax.swing.JFrame;
@@ -9,7 +10,10 @@ import javax.swing.JInternalFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 
-public class Ventana extends JFrame {
+/**
+ * @author lopdam
+ */
+public class Componentes extends JFrame {
 
     private javax.swing.JButton botonBorrar;
     private javax.swing.JButton botonInsertar;
@@ -20,15 +24,12 @@ public class Ventana extends JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
 
-    private SimuladorArbolBinario simulador = new SimuladorArbolBinario();
+    private ControlGrafica simulador = new ControlGrafica();
 
-    /**
-     * @author lopdam
-     */
-    public Ventana() {
+    public Componentes() {
         initComponents();
         this.inicializar(false);
-        PanelFondo F = new PanelFondo();
+        VentanaFondo F = new VentanaFondo();
         this.add(F, BorderLayout.CENTER);
         this.pack();
 
@@ -241,12 +242,12 @@ public class Ventana extends JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Componentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
         //Create and display the form
         java.awt.EventQueue.invokeLater(() -> {
-            new Ventana().setVisible(true);
+            new Componentes().setVisible(true);
         });
     }
 }

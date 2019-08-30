@@ -1,8 +1,9 @@
-/*
- * 
- */
 package Vistas;
 
+/*
+ Esta Clase sirve para Dibujar el arbol.
+ El grafico posteriormente va a ser agregado a los componentes
+ */
 import Controlador.Node;
 import Controlador.TreeAVL;
 import java.awt.Color;
@@ -18,7 +19,7 @@ import javax.swing.JPanel;
  *
  * @author lopdam
  */
-public class ArbolExpresionGrafico extends JPanel {
+public class GraficoArbol extends JPanel {
 
     private TreeAVL miArbol;
     private HashMap posicionNod = null;
@@ -28,7 +29,7 @@ public class ArbolExpresionGrafico extends JPanel {
     private Dimension empty = new Dimension(0, 0);
     private FontMetrics fm = null;
 
-    public ArbolExpresionGrafico(TreeAVL miArbol) {
+    public GraficoArbol(TreeAVL miArbol) {
         this.miArbol = miArbol;
         this.setBackground(Color.WHITE);
         posicionNod = new HashMap();
