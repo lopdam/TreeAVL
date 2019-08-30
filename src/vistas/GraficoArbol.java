@@ -1,11 +1,11 @@
-package Vistas;
+package vistas;
 
 /*
  Esta Clase sirve para Dibujar el arbol.
  El grafico posteriormente va a ser agregado a los componentes
  */
-import Controlador.Node;
-import Controlador.TreeAVL;
+import controlador.Node;
+import controlador.TreeAVL;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FontMetrics;
@@ -25,7 +25,8 @@ public class GraficoArbol extends JPanel {
     private HashMap posicionNod = null;
     private HashMap subtreeSizes = null;
     private boolean dirty = true;
-    private int parent2child = 20, child2child = 30;
+    private int parent2child = 20;
+    private int child2child = 30;
     private Dimension empty = new Dimension(0, 0);
     private FontMetrics fm = null;
 
@@ -43,18 +44,18 @@ public class GraficoArbol extends JPanel {
         subtreeSizes.clear();
         Node root = this.miArbol.getRoot();
         if (root != null) {
-            calcularTamañoSubarbol(root);
+            calcularTamanioSubarbol(root);
             calcularPosicion(root, Integer.MAX_VALUE, Integer.MAX_VALUE, 0);
         }
     }
 
-    private Dimension calcularTamañoSubarbol(Node n) {
+    private Dimension calcularTamanioSubarbol(Node n) {
         if (n == null) {
             return new Dimension(0, 0);
         }
 
-        Dimension ld = calcularTamañoSubarbol(n.getLeft());
-        Dimension rd = calcularTamañoSubarbol(n.getRight());
+        Dimension ld = calcularTamanioSubarbol(n.getLeft());
+        Dimension rd = calcularTamanioSubarbol(n.getRight());
 
         int h = fm.getHeight() + parent2child + Math.max(ld.height, rd.height);
         int w = ld.width + child2child + rd.width;
@@ -114,6 +115,7 @@ public class GraficoArbol extends JPanel {
 
     }
 
+    @Override
     public void paint(Graphics g) {
         super.paint(g);
         fm = g.getFontMetrics();

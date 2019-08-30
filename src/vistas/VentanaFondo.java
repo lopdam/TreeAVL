@@ -1,10 +1,11 @@
-package Vistas;
+package vistas;
 
 /*
 Ventana Panel Fondo
 Es la Ventana que funciona como un contenedor para todos los componentes
  */
 import java.awt.Graphics;
+import javax.swing.GroupLayout;
 import javax.swing.JPanel;
 
 /**
@@ -28,15 +29,15 @@ public class VentanaFondo extends JPanel {
     @SuppressWarnings("unchecked")
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        GroupLayout layout = new GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 507, Short.MAX_VALUE)
         );
 
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 346, Short.MAX_VALUE)
         );
     }

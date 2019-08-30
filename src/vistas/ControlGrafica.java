@@ -1,10 +1,10 @@
-package Vistas;
+package vistas;
 
 /*
  * Esta clase agrega las funcionalidades necesarias al grafico del arbol
  * Posteriormente va a ser agregado a los componentes del arbol
  */
-import Controlador.TreeAVL;
+import controlador.TreeAVL;
 import java.util.Comparator;
 import javax.swing.JPanel;
 

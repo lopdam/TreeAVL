@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 /*
  * Control logico del Arbol
@@ -45,30 +45,6 @@ public class TreeAVL<E> {
         }
         comprobar(searchParent(p.getData()));
         return null;
-    }
-
-    private Node<E> searchNode(E data) {
-        return searchNode(data, root);//empiezo a buscar desde el root, porque es lo unico que conoce el arbol
-    }
-
-    private Node<E> searchNode(E data, Node<E> nodo) {
-        //caso base
-        if (nodo == null) {//aqui se debe preguntar por el nodo, no por la raiz, es decir cuando llega al final
-            return null;
-        } //si al menos tiene un elemento, debo comprobar si la data del nodo es la data que estoy buscando
-        else if (nodo.getData().equals(data)) {
-            return nodo;
-        }
-        //debo bajar por las dos ramas, aqui viene la recursividad
-
-        //podar el arbol, si ya encuentro el elemento en el lado izquierdo ya no busco en el lado derecho
-        //en el codigo que se esta buscando en todo el arbol recursivamente y luego se decide que hacer
-        Node<E> nodeLeft = searchNode(data, nodo.getLeft());
-        if (nodeLeft != null) {
-            return nodeLeft;
-        }
-        return searchNode(data, nodo.getRight());
-
     }
 
     public Node<E> searchParent(E data) {
@@ -136,36 +112,36 @@ public class TreeAVL<E> {
     private Node<E> balancear(Node<E> n) {
         if (n.getFactor() == -2) {
             if (n.getLeft().getFactor() <= 0) {
-                return LeftLeftCaso(n);
+                return leftLeftCaso(n);
             } else {
-                return LeftRightCaso(n);
+                return leftRightCaso(n);
             }
         } else if (n.getFactor() == +2) {
             if (n.getRight().getFactor() >= 0) {
-                return RightRightCaso(n);
+                return rightRightCaso(n);
             } else {
-                return RightLeftCaso(n);
+                return rightLeftCaso(n);
             }
         }
         return n;
     }
 
-    private Node<E> LeftLeftCaso(Node<E> n) {
-        return RightRotation(n);
+    private Node<E> leftLeftCaso(Node<E> n) {
+        return rightRotation(n);
     }
 
-    private Node<E> RightRightCaso(Node<E> n) {
-        return LeftRotation(n);
+    private Node<E> rightRightCaso(Node<E> n) {
+        return leftRotation(n);
     }
 
-    private Node<E> LeftRightCaso(Node<E> n) {
-        n.setLeft(LeftRotation(n.getLeft()));
-        return LeftLeftCaso(n);
+    private Node<E> leftRightCaso(Node<E> n) {
+        n.setLeft(leftRotation(n.getLeft()));
+        return leftLeftCaso(n);
     }
 
-    private Node<E> RightLeftCaso(Node<E> n) {
-        n.setRight(RightRotation(n.getRight()));
-        return RightRightCaso(n);
+    private Node<E> rightLeftCaso(Node<E> n) {
+        n.setRight(rightRotation(n.getRight()));
+        return rightRightCaso(n);
     }
 
     private void actualizar(Node<E> n) {
@@ -175,7 +151,7 @@ public class TreeAVL<E> {
         n.setFactor(alturaRight - alturaLeft);
     }
 
-    private Node<E> RightRotation(Node<E> nodo) {
+    private Node<E> rightRotation(Node<E> nodo) {
         Node<E> nuevoPadre = nodo.getLeft();
         nodo.setLeft(nuevoPadre.getRight());
         nuevoPadre.setRight(nodo);
@@ -184,7 +160,7 @@ public class TreeAVL<E> {
         return nuevoPadre;
     }
 
-    private Node<E> LeftRotation(Node<E> nodo) {
+    private Node<E> leftRotation(Node<E> nodo) {
         Node<E> nuevoPadre = nodo.getRight();
         nodo.setRight(nuevoPadre.getLeft());
         nuevoPadre.setLeft(nodo);

@@ -1,4 +1,4 @@
-package Controlador;
+package controlador;
 
 /*
  * Clase Node la que contiene las especificaciones de cada nodo
@@ -51,7 +51,8 @@ public class Node<E> {
 
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.data);
         return hash;
     }
 
@@ -67,10 +68,7 @@ public class Node<E> {
             return false;
         }
         final Node<?> other = (Node<?>) obj;
-        if (!Objects.equals(this.data, other.data)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.data, other.data);
     }
 
     public int getFactor() {
